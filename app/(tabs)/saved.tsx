@@ -1,12 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native'
 
-const Save = (): React.JSX.Element => {
+const Saved = (): React.JSX.Element => {
   return (
     <View>
-      <Text>Save</Text>
+      <Text>Saved</Text>
     </View>
   )
 }
 
-export default Save
+export default Saved
