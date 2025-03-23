@@ -38,14 +38,6 @@ const _Layout = (): React.JSX.Element => {
         }}
       />
       <Tabs.Screen
-        name="saved"
-        options={{
-          title: 'Saved',
-          headerShown: false,
-          tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={icons.save} title="Saved" />
-        }}
-      />
-      <Tabs.Screen
         name="search"
         options={{
           title: 'Search',
@@ -55,6 +47,15 @@ const _Layout = (): React.JSX.Element => {
           )
         }}
       />
+      <Tabs.Screen
+        name="saved"
+        options={{
+          title: 'Saved',
+          headerShown: false,
+          tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={icons.save} title="Saved" />
+        }}
+      />
+
       <Tabs.Screen
         name="profile"
         options={{
