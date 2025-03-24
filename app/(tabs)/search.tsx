@@ -7,6 +7,7 @@ import { images } from '~/constants/images'
 import { fetchMovies } from '~/services/api'
 import MovieCard from '~/components/MovieCard'
 import SearchBar from '~/components/SearchBar'
+import { updateSearchCount } from '~/services/appwrite'
 
 const Search = (): React.JSX.Element => {
   const [searchQuery, setSearchQuery] = useState<string>('')
@@ -29,6 +30,10 @@ const Search = (): React.JSX.Element => {
     const timeoutId = setTimeout(async () => {
       if (searchQuery.trim()) {
         await loadMovies()
+
+        if (movies?.length > 0 && movies?.[0]) {
+          updateSearchCount(searchQuery, movies[0])
+        }
       } else {
         resetMovies()
       }
@@ -43,7 +48,7 @@ const Search = (): React.JSX.Element => {
 
       <FlatList
         data={movies}
-        renderItem={({ item }) => <MovieCard key={item.id} {...item} />}
+        renderItem={({ item }) => <MovieCard {...item} />}
         keyExtractor={(item) => item.id.toString()}
         className="px-5"
         numColumns={3}
